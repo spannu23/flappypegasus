@@ -8,18 +8,21 @@ FPS = 32
 scr_width = 289
 scr_height = 511
 display_screen_window = pygame.display.set_mode((scr_width, scr_height))
+#variable for screen height
 play_ground = scr_height * 0.8
+#resizes game image
 game_image = {}
+#sizes game audio
 game_audio_sound = {}
+#variable for player image
 player = 'images/bird.png'
+#backround image
 bcg_image = 'images/background.png'
+#pipe image
 pipe_image = 'images/pipe.png'
 
-
+#    Shows welcome images on the screen
 def welcome_main_screen():
-    """
-    Shows welcome images on the screen
-    """
 
     p_x = int(scr_width / 5)
     p_y = int((scr_height - game_image['player'].get_height()) / 2)
