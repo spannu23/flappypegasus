@@ -92,7 +92,7 @@ def main_gameplay():
         if cr_tst:
             return
 
-
+ 
         p_middle_positions = p_x + game_image['player'].get_width() / 2
         for pipe in up_pips:
             pip_middle_positions = pipe['x'] + game_image['pipe'][0].get_width() / 2
