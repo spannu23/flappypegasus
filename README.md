@@ -1,3 +1,4 @@
 # FlappyPegasus
 BY Samrath, Shivom, CJ, and Callister
-A clever and funny spinoff of the original 
+A Beyblade themed spinoff of the original hit, FlappyBird.
+
