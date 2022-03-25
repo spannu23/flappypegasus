@@ -23,7 +23,7 @@ pipe_image = 'images/pipe.png'
 
 #    Shows welcome images on the screen
 def welcome_main_screen():
-
+    #variables forstart of game positioning
     p_x = int(scr_width / 5)
     p_y = int((scr_height - game_image['player'].get_height()) / 2)
     msgy = int(scr_height * 0.13)
@@ -45,14 +45,14 @@ def welcome_main_screen():
                 pygame.display.update()
                 time_clock.tick(FPS)
 
-
+#variables for status at beginning of game
 def main_gameplay():
     score = 0
     p_x = int(scr_width / 5)
     p_y = int(scr_width / 2)
     b_x = 0
 
-
+#status of spawning pipes
     n_pip1 = get_Random_Pipes()
     n_pip2 = get_Random_Pipes()
 
