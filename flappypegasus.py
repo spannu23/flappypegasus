@@ -181,12 +181,12 @@ def get_Random_Pipes():
     ]
     return pipe
 
-
+#Starting the game and loading all assets
 if __name__ == "__main__":
 
     pygame.init()
     time_clock = pygame.time.Clock()
-    pygame.display.set_caption('Flappy Bird Game')
+    pygame.display.set_caption('FlappyPegasus')
     game_image['numbers'] = (
         pygame.image.load('images/0.png').convert_alpha(),
         pygame.image.load('images/1.png').convert_alpha(),
