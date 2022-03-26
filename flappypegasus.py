@@ -167,11 +167,9 @@ def is_Colliding(p_x, p_y, up_pipes, low_pipes):
 
     return False
 
-
+# Generate positions of two pipes(one bottom straight and one top rotated) on the screen
 def get_Random_Pipes():
-    """
-    Generate positions of two pipes(one bottom straight and one top rotated ) for blitting on the screen
-    """
+ 
     pip_h = game_image['pipe'][0].get_height()
     off_s = scr_height / 3
     yes2 = off_s + random.randrange(0, int(scr_height - game_image['base'].get_height() - 1.2 * off_s))
