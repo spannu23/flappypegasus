@@ -21,7 +21,7 @@ bcg_image = 'images/background.png'
 #pipe image
 pipe_image = 'images/pipe.png'
 
-#    Shows welcome images on the screen
+#Shows welcome images on the screen
 def welcome_main_screen():
     #variables forstart of game positioning
     p_x = int(scr_width / 5)
@@ -78,15 +78,17 @@ def main_gameplay():
 #key interactions
     while True:
         for event in pygame.event.get():
+            #if statement to quit game
             if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
                 pygame.quit()
                 sys.exit()
+                #if statement to start game
             if event.type == KEYDOWN and (event.key == K_SPACE or event.key == K_UP):
                 if p_y > 0:
                     p_vx = p_flap_accuracy
                     p_flap = True
                     game_audio_sound['wing'].play()
-#colliding interactions
+#colliding interactions created using a whole bunch of if statements
         cr_tst = is_Colliding(p_x, p_y, up_pips,
                               low_pips)
         if cr_tst:
@@ -109,7 +111,7 @@ def main_gameplay():
         p_height = game_image['player'].get_height()
         p_y = p_y + min(p_vx, play_ground - p_y - p_height)
 
-
+        
         for pip_upper, pip_lower in zip(up_pips, low_pips):
             pip_upper['x'] += pip_Vx
             pip_lower['x'] += pip_Vx
@@ -211,7 +213,7 @@ if __name__ == "__main__":
     game_audio_sound['point'] = pygame.mixer.Sound('sounds/point.wav')
     game_audio_sound['swoosh'] = pygame.mixer.Sound('sounds/swoosh.wav')
     game_audio_sound['wing'] = pygame.mixer.Sound('sounds/wing.wav')
-
+    # Main screen images
     game_image['background'] = pygame.image.load(bcg_image).convert()
     game_image['player'] = pygame.image.load(player).convert_alpha()
 
