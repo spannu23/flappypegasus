@@ -39,10 +39,15 @@ def welcome_main_screen():
             elif event.type == KEYDOWN and (event.key == K_SPACE or event.key == K_UP):
                 return
             else:
+                # Insert player sprite
                 display_screen_window.blit(game_image['background'], (0, 0))
                 display_screen_window.blit(game_image['player'], (p_x, p_y))
                 display_screen_window.blit(game_image['base'], (b_x, play_ground))
+                
+                # Update display
                 pygame.display.update()
+                
+                # Setup framerate
                 time_clock.tick(FPS)
 
 #variables for status at beginning of game
@@ -170,11 +175,13 @@ def is_Colliding(p_x, p_y, up_pipes, low_pipes):
 # Generate positions of two pipes(one bottom straight and one top rotated) on the screen
 def get_Random_Pipes():
  
-    pip_h = game_image['pipe'][0].get_height()
-    off_s = scr_height / 3
-    yes2 = off_s + random.randrange(0, int(scr_height - game_image['base'].get_height() - 1.2 * off_s))
-    pipeX = scr_width + 10
-    y1 = pip_h - yes2 + off_s
+    pip_h = game_image['pipe'][0].get_height() # Height of pipe image
+    off_s = scr_height / 3 # Offset
+    yes2 = off_s + random.randrange(0, int(scr_height - game_image['base'].get_height() - 1.2 * off_s)) # Position of pipe
+    pipeX = scr_width + 10 # X-Coordinate position
+    y1 = pip_h - yes2 + off_s # Y-Height of pipe
+    
+    # Dictionary of pipe
     pipe = [
         {'x': pipeX, 'y': -y1},  # upper Pipe
         {'x': pipeX, 'y': yes2}  # lower Pipe
@@ -184,9 +191,13 @@ def get_Random_Pipes():
 #Starting the game and loading all assets
 if __name__ == "__main__":
 
-    pygame.init()
-    time_clock = pygame.time.Clock()
+    pygame.init() # Start pygane
+    time_clock = pygame.time.Clock() # Create runtime variable
     pygame.display.set_caption('FlappyPegasus')
+    
+    # Load images
+    
+    # Numbers
     game_image['numbers'] = (
         pygame.image.load('images/0.png').convert_alpha(),
         pygame.image.load('images/1.png').convert_alpha(),
@@ -199,13 +210,14 @@ if __name__ == "__main__":
         pygame.image.load('images/8.png').convert_alpha(),
         pygame.image.load('images/9.png').convert_alpha(),
     )
-
+    
+    # Map
     game_image['base'] = pygame.image.load('images/base.png').convert_alpha()
     game_image['pipe'] = (pygame.transform.rotate(pygame.image.load(pipe_image).convert_alpha(), 180),
                           pygame.image.load(pipe_image).convert_alpha()
                           )
 
-    # Game sounds
+    # Load Game sounds
     game_audio_sound['die'] = pygame.mixer.Sound('sounds/die.wav')
     game_audio_sound['hit'] = pygame.mixer.Sound('sounds/hit.wav')
     game_audio_sound['point'] = pygame.mixer.Sound('sounds/point.wav')
@@ -214,7 +226,8 @@ if __name__ == "__main__":
     # Main screen images
     game_image['background'] = pygame.image.load(bcg_image).convert()
     game_image['player'] = pygame.image.load(player).convert_alpha()
-
+    
+    # Game loop
     while True:
         welcome_main_screen()  # Shows welcome screen to the user until he presses a button
         main_gameplay()  # This is the main game function
